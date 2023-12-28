@@ -9,11 +9,11 @@ export default function Home() {
   const [placeList, setPlaceList] = useState([]);
 
   useEffect(() => {
-    getPlaceList();
+    getPlaceList("Hotels in New York");
   }, []);
 
-  const getPlaceList = async () => {
-    const result = await fetch("/api/google-place-api?q=Hotels In NewYork");
+  const getPlaceList = async (value: string) => {
+    const result = await fetch("/api/google-place-api?q=" + value);
     const data = await result.json();
 
     setPlaceList(data.resp.results);
@@ -21,9 +21,9 @@ export default function Home() {
 
   return (
     <div>
-      <Hero />
+      <Hero userInput={(value: string) => getPlaceList(value)} />
 
-      {placeList? <PlaceList placeList={placeList}/>:null}
+      {placeList ? <PlaceList placeList={placeList} /> : null}
     </div>
   );
 }
