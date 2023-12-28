@@ -1,6 +1,7 @@
 import React, { useState } from "react";
 import PlaceItemCard from "./PlaceItemCard";
 import SideDrawer from "./SideDrawer";
+import Skelton from "./Skelton";
 
 function PlaceList({ placeList }: any) {
   const [selectedPlace, setSelectedPlace] = useState<any>([]);
@@ -26,6 +27,20 @@ function PlaceList({ placeList }: any) {
             place={selectedPlace}
             close={() => setSelectedPlace([])}
           />
+        </div>
+      ) : null}
+
+      {placeList?.length == 0 ? (
+        <div
+          className="grid 
+        grid-cols-2 
+        md:grid-cols-3 
+        lg:grid-cols-4
+        gap-5"
+        >
+          {[1, 2, 3, 4, 5, 6, 7].map((item, index) => (
+            <Skelton key={index} />
+          ))}
         </div>
       ) : null}
     </div>
