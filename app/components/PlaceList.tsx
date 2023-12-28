@@ -1,8 +1,10 @@
-import React from "react";
+import React, { useState } from "react";
 import PlaceItemCard from "./PlaceItemCard";
 import SideDrawer from "./SideDrawer";
 
 function PlaceList({ placeList }: any) {
+  const [selectedPlace, setSelectedPlace] = useState<any>([]);
+
   return (
     <div className="px-[10px] md:px-[120px] mt-7 z-10">
       <h2 className="text-[20px] font-bold">Search Results</h2>
@@ -11,15 +13,18 @@ function PlaceList({ placeList }: any) {
           <div
             className="z-10"
             key={index}
+            onClick={() => setSelectedPlace(place)}
           >
             <PlaceItemCard place={place} />
           </div>
         ))}
       </div>
 
-      <div className="fixed top-0 right-0 z-20">
-        <SideDrawer />
-      </div>
+      {selectedPlace?.name ? (
+        <div className="fixed top-0 right-0 z-20">
+          <SideDrawer />
+        </div>
+      ) : null}
     </div>
   );
 }
