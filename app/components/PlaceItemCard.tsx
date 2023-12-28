@@ -1,7 +1,8 @@
 import Image from "next/image";
 import React from "react";
 
-const BASE_URL_PHOTO ="https://maps.googleapis.com/maps/api/place/photo?maxwidth=800";
+const BASE_URL_PHOTO =
+  "https://maps.googleapis.com/maps/api/place/photo?maxwidth=800";
 
 function PlaceItemCard({ place }: any) {
   return (
