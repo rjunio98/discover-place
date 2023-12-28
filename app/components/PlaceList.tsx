@@ -22,7 +22,10 @@ function PlaceList({ placeList }: any) {
 
       {selectedPlace?.name ? (
         <div className="fixed top-0 right-0 z-20">
-          <SideDrawer close={() => setSelectedPlace([])} />
+          <SideDrawer
+            place={selectedPlace}
+            close={() => setSelectedPlace([])}
+          />
         </div>
       ) : null}
     </div>
