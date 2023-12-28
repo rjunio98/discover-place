@@ -1,5 +1,6 @@
 import React from "react";
 import PlaceItemCard from "./PlaceItemCard";
+import SideDrawer from "./SideDrawer";
 
 function PlaceList({ placeList }: any) {
   return (
@@ -14,6 +15,10 @@ function PlaceList({ placeList }: any) {
             <PlaceItemCard place={place} />
           </div>
         ))}
+      </div>
+
+      <div className="fixed top-0 right-0 z-20">
+        <SideDrawer />
       </div>
     </div>
   );
