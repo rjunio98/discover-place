@@ -1,8 +1,10 @@
 import React from 'react'
 
-function SideDrawer() {
+function SideDrawer({close}:any) {
   return (
-    <div className="h-screen w-screen md:w-[400px] bg-white shadow-md p-5 z-20">SideDrawer</div>
+    <div className="h-screen w-screen md:w-[400px] bg-white shadow-md p-5 z-20">
+        <button onClick={() => close()}>Close</button>
+    </div>
   )
 }
 
